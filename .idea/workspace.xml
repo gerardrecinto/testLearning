@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5c3e0ca6-0271-4494-a40b-63e3046526b3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/gerard/resources/logs/Application.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/gerard/resources/logs/Selenium.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/gerard/resources/properties/Config.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/gerard/resources/properties/OR.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/gerard/resources/properties/Config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/gerard/resources/properties/Config.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -56,6 +54,7 @@
     <session id="807490506">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
@@ -70,6 +69,18 @@
         <counts>
           <entry key="PLAIN_TEXT" value="2" />
           <entry key="Properties" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="properties" value="14" />
+          <entry key="txt" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="PLAIN_TEXT" value="3" />
+          <entry key="Properties" value="14" />
         </counts>
       </usages-collector>
     </session>
@@ -102,7 +113,11 @@
       </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/gerard/resources/properties/Config.properties">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="14" lean-forward="true" selection-start-column="14" selection-end-column="14" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -114,6 +129,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/gerard/resources/properties/Config.properties" />
       </list>
     </option>
   </component>
@@ -186,6 +202,16 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="gerard" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="excel" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DataDrivenFramework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="testLearning" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="gerard" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="logs" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -197,7 +223,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542583206518" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542584302084" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
@@ -229,6 +255,14 @@
       <option name="presentableId" value="Default" />
       <updated>1542412502622</updated>
     </task>
+    <task id="LOCAL-00001" summary="3rd">
+      <created>1542583294412</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1542583294412</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
@@ -256,10 +290,10 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" visible="true" weight="0.32917705" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32917705" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Version Control" order="9" visible="true" weight="0.32917705" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -272,6 +306,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="3rd" />
+    <option name="LAST_COMMIT_MESSAGE" value="3rd" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/pom.xml">
@@ -291,7 +329,11 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/gerard/resources/properties/Config.properties">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="14" lean-forward="true" selection-start-column="14" selection-end-column="14" />
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">
