@@ -1,6 +1,8 @@
 package gerard.base;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
@@ -29,7 +31,7 @@ public class TestBase {
     public void setUp(){
         FileInputStream fis;
         try {
-            fis = new FileInputStream("C:\\Users\\grecinto\\Desktop\\testLearning\\src\\test\\java\\gerard\\resources\\properties\\Config.properties");
+            fis = new FileInputStream(System.getProperty("user.dir") + "/src/test/java/gerard/resources/properties/Config.properties");
             try{
                 config.load(fis);
             } catch (IOException e){
@@ -42,8 +44,7 @@ public class TestBase {
 
 
         try {
-            fis = new FileInputStream("C:\\Users\\grecinto\\Desktop\\testLearning\\src\\test\\java\\gerard\\resources\\properties\\OR.properties");
-            try {
+            fis = new FileInputStream(System.getProperty("user.dir") + "/src/test/java/gerard/resources/properties/OR.properties");            try {
                 OR.load(fis);
             } catch (IOException e){
                 e.printStackTrace();
@@ -51,6 +52,15 @@ public class TestBase {
         } catch (FileNotFoundException e){
             e.printStackTrace();
         }
+
+        if (config.getProperty("browser").equals("firefox")){
+            System.setProperty("webdriver.gecko.driver", "gecko.exe");
+            driver = new FirefoxDriver();
+        } else if (config.getProperty(("browser")).equals("chrome")){
+            System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+            driver = new ChromeDriver();
+        }
+
 
 
     }
