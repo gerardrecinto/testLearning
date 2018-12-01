@@ -10,6 +10,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 public class TestBase {
 
@@ -44,7 +45,8 @@ public class TestBase {
 
 
         try {
-            fis = new FileInputStream(System.getProperty("user.dir") + "/src/test/java/gerard/resources/properties/OR.properties");            try {
+            fis = new FileInputStream(System.getProperty("user.dir") + "/src/test/java/gerard/resources/properties/OR.properties");
+            try {
                 OR.load(fis);
             } catch (IOException e){
                 e.printStackTrace();
@@ -53,22 +55,31 @@ public class TestBase {
             e.printStackTrace();
         }
 
+
+        //TODO later
         if (config.getProperty("browser").equals("firefox")){
             System.setProperty("webdriver.gecko.driver", "gecko.exe");
             driver = new FirefoxDriver();
         } else if (config.getProperty(("browser")).equals("chrome")){
-            System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")  + "/src/test/java/gerard/resources/executables/chromedriver");
             driver = new ChromeDriver();
+        } else if (config.getProperty("browser").equals("ie")){
+            System.setProperty("webdriver.ie.driver", System.getProperty("user.dir") + "/src/test/java/gerard/resources/executables");
         }
 
 
+        driver.get(config.getProperty("testsiteurl"));
+        driver.manage().window().fullscreen();
+        driver.manage().timeouts().implicitlyWait(Integer.parseInt(config.getProperty("implicit.wait")), TimeUnit.SECONDS);
 
     }
 
 
     @AfterSuite
     public void tearDown(){
-
+        if (driver!=null){
+            driver.quit();
+        }
     }
 
 
