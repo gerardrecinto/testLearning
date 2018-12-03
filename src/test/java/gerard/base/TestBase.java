@@ -1,5 +1,6 @@
 package gerard.base;
 
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -32,7 +33,7 @@ public class TestBase {
     public void setUp(){
         FileInputStream fis;
         try {
-            fis = new FileInputStream(System.getProperty("user.dir") + "/src/test/java/gerard/resources/properties/Config.properties");
+            fis = new FileInputStream(System.getProperty("user.dir") + "\\src\\test\\java\\gerard\\resources\\properties\\Config.properties");
             try{
                 config.load(fis);
             } catch (IOException e){
@@ -45,7 +46,7 @@ public class TestBase {
 
 
         try {
-            fis = new FileInputStream(System.getProperty("user.dir") + "/src/test/java/gerard/resources/properties/OR.properties");
+            fis = new FileInputStream(System.getProperty("user.dir") + "\\src\\test\\java\\gerard\\resources\\properties\\OR.properties");
             try {
                 OR.load(fis);
             } catch (IOException e){
@@ -58,13 +59,13 @@ public class TestBase {
 
         //TODO later
         if (config.getProperty("browser").equals("firefox")){
-            System.setProperty("webdriver.gecko.driver", "gecko.exe");
+            System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "\\src\\test\\gerard\\resources\\executables\\geckodriver.exe");
             driver = new FirefoxDriver();
         } else if (config.getProperty(("browser")).equals("chrome")){
-            System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")  + "/src/test/java/gerard/resources/executables/chromedriver");
+            System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")  + "\\src\\test\\java\\gerard\\resources\\executables\\chromedriver.exe");
             driver = new ChromeDriver();
         } else if (config.getProperty("browser").equals("ie")){
-            System.setProperty("webdriver.ie.driver", System.getProperty("user.dir") + "/src/test/java/gerard/resources/executables");
+            System.setProperty("webdriver.ie.driver", System.getProperty("user.dir") + "\\src\\test\\java\\gerard\\resources\\executables\\IEDriverServer.exe");
         }
 
 
