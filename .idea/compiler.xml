@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="DataDrivenFramework" />
         <module name="testLearning" />
+        <module name="udemy" />
         <module name="udemy2" />
       </profile>
     </annotationProcessing>

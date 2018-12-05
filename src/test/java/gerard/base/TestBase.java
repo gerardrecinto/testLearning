@@ -2,6 +2,7 @@ package gerard.base;
 
 
 import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -11,6 +12,7 @@ import org.testng.annotations.BeforeSuite;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.NoSuchElementException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -80,6 +82,14 @@ public class TestBase {
 
     }
 
+    public boolean isElementPresent(By by){
+        try{
+            driver.findElement(by);
+            return true;
+        }catch(NoSuchElementException e){
+            return false;
+        }
+    }
 
     @AfterSuite
     public void tearDown(){
