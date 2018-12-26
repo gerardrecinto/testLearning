@@ -19,7 +19,11 @@
             <class name="gerard.testcases.AddCustomerTest">
             </class>
         </classes>
-
+    </test>
+    <test name="Open Account Test">
+        <classes>
+            <class name="gerard.testcases.OpenAccountTest"></class>
+        </classes>
     </test>
 
 </suite>

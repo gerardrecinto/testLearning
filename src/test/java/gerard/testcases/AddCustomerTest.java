@@ -1,59 +1,57 @@
 package gerard.testcases;
+import com.relevantcodes.extentreports.LogStatus;
 import gerard.base.TestBase;
-import org.openqa.selenium.By;
+import gerard.resources.utilities.TestUtil;
+import net.bytebuddy.implementation.bytecode.Throw;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.SkipException;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
 import java.lang.reflect.Method;
 import java.util.Collection;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Set;
+import java.util.function.Function;
 
 public class AddCustomerTest extends TestBase {
-    @Test(dataProvider="getData")
-    public void addCustomer(String postCode, String lastName, String firstName){
-        driver.findElement(By.cssSelector(OR.getProperty("addCustBtn"))).click();
-        driver.findElement(By.cssSelector(OR.getProperty("postcode"))).sendKeys(postCode);
-        driver.findElement(By.cssSelector(OR.getProperty("lastname"))).sendKeys(lastName);
-        driver.findElement(By.cssSelector(OR.getProperty("firstname"))).sendKeys(firstName);
-        driver.findElement(By.cssSelector(OR.getProperty("addBtn"))).click();
+    @Test(dataProviderClass = TestUtil.class, dataProvider="dp")
+    public void addCustomerTest(Hashtable<String,String> data){
 
-    }
+        if(!data.get("runmode").equals("Y")){
 
-    @DataProvider(name="getData")
-    public Object[][] getData() {
-
-        String sheetName = "AddCustomerTest";
-        int rows = excel.getRowCount(sheetName);
-        int cols = excel.getColumnCount(sheetName);
-
-        Object[][] data = new Object[rows - 1][cols];
-
-        Hashtable<String,String> table = null;
-
-        for (int rowNum = 2; rowNum <= rows; rowNum++) { // 2
-
-            table = new Hashtable<String,String>();
-
-            for (int colNum = 0; colNum < cols; colNum++) {
-
-
-                table.put(excel.getCellData(sheetName, colNum, 1), excel.getCellData(sheetName, colNum, rowNum));
-                //data[rowNum - 2][colNum] = table.values().toArray(new String[colNum])[colNum];
-
-
-            }
-            String[] a = table.values().toArray(new String[cols-1]);
-            for (int i = 0; i< a.length; i++){
-                data[rowNum-2][i] = a[i];
-            }
-
+            throw new SkipException("Skipping the test case as the Run mode for data set is NO");
         }
+        click("addCustBtn_CSS");
+        type("firstname_CSS",data.get("firstname"));
+        type("lastname_CSS", data.get("lastname"));
+        type("postcode_CSS", data.get("postcode"));
+        try {
+            Thread.sleep(500);
+        } catch(Throwable t){}
+        test.log(LogStatus.INFO, test.addScreenCapture(TestUtil.screenshotName));
 
-        return data;
+        click("addBtn_CSS");
+        try {
+            Thread.sleep(500);
+        } catch(Throwable t){}
+        test.log(LogStatus.INFO, test.addScreenCapture(TestUtil.screenshotName));
+        Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+        Assert.assertTrue(alert.getText().contains(data.get("alerttext")));
+        alert.accept();
+       /* Alert alert = driver.switchTo().alert();
+        if(alert != null){
+            alert.accept();
+        }*/
+
 
     }
+
+
 
 
 }
