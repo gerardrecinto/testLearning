@@ -2,15 +2,17 @@ package gerard.listeners;
 
 import com.relevantcodes.extentreports.LogStatus;
 import gerard.base.TestBase;
+import gerard.resources.utilities.MonitoringMail;
+import gerard.resources.utilities.TestConfig;
 import gerard.resources.utilities.TestUtil;
-import org.testng.ITestContext;
-import org.testng.ITestListener;
-import org.testng.ITestResult;
-import org.testng.Reporter;
+import org.testng.*;
 
+import javax.mail.MessagingException;
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 
-public class CustomListeners extends TestBase implements ITestListener {
+public class CustomListeners extends TestBase implements ITestListener, ISuiteListener {
 
     public void onTestStart(ITestResult iTestResult) {
         test = rep.startTest(iTestResult.getName().toUpperCase());
@@ -55,5 +57,28 @@ public class CustomListeners extends TestBase implements ITestListener {
 
     public void onFinish(ITestContext iTestContext) {
 
+    }
+
+    @Override
+    public void onStart(ISuite iSuite) {
+
+    }
+
+    @Override
+    public void onFinish(ISuite iSuite) {
+        MonitoringMail mail = new MonitoringMail();
+        String messageBody = null;
+        try {
+            messageBody = "http://" + InetAddress.getLocalHost().getHostAddress()
+                    + ":8080/job/DataDrivenLiveProject/Extent_20Report/";
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            mail.sendMail(TestConfig.server, TestConfig.from, TestConfig.to, TestConfig.subject, messageBody);
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
     }
 }
