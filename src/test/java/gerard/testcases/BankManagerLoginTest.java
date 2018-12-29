@@ -12,20 +12,19 @@ public class BankManagerLoginTest extends TestBase {
 
     @Test
     public void bankManagerLoginTest() throws InterruptedException {
-       try {
            log.debug("Inside Login Test");
-           Thread.sleep(3000);
+           try {
+               Thread.sleep(1000);
+           } catch(Throwable t){}
+           test.log(LogStatus.INFO,"bmlBtn is " + OR.getProperty("bmlBtn_CSS"));
 
            click("bmlBtn_CSS");
-
            Assert.assertTrue(isElementPresent(By.cssSelector(OR.getProperty("addCustBtn_CSS"))), "Login not successful");
            log.debug("login successfful");
            // Assert.fail("Login not successful");
            // Reporter.log("login successful");
            // Reporter.log("<a target=\"_blank\" href=\"abcd.jpg\">Screenshot</a>");
            //Reporter.log("<br>");
-       } catch (Throwable t){
 
-       }
     }
 }

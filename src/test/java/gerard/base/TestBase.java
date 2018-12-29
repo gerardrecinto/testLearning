@@ -55,7 +55,7 @@ public class TestBase {
     public ExtentReports rep = ExtentManager.getInstance();
     public static ExtentTest test;
     public static WebDriverWait wait;
-
+    public static String browser;
 
     @BeforeSuite
     public void setUp(){
@@ -86,10 +86,19 @@ public class TestBase {
                 e.printStackTrace();
             }
 
+            if(System.getenv("browser")!=null && !System.getenv("browser").isEmpty()){
 
-            //TODO later
+                browser = System.getenv("browser");
+            }else{
+
+                browser = config.getProperty("browser");
+
+            }
+
+            config.setProperty("browser", browser);
+
             if (config.getProperty("browser").equals("firefox")) {
-                System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "\\src\\test\\gerard\\resources\\executables\\geckodriver.exe");
+                System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "\\src\\test\\java\\gerard\\resources\\executables\\geckodriver.exe");
                 driver = new FirefoxDriver();
             } else if (config.getProperty(("browser")).equals("chrome")) {
                 System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\src\\test\\java\\gerard\\resources\\executables\\chromedriver.exe");

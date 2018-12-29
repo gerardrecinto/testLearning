@@ -4,9 +4,11 @@ public class TestConfig {
 
 	
 	public static String server="smtp.gmail.com";
-	public static String from = "vaffaproject@gmail.com";
-	public static String password = "Selenium@123";
-	public static String[] to ={"seleniumcoaching@gmail.com","trainer@way2automation.com"};
+
+	//TODO add email and password here to send report
+	public static String from = "emperorxpenguin8@gmail.com";
+	public static String password = "";
+	public static String[] to ={"gerardrecinto@gmail.com"};
 	public static String subject = "Extent Project Report";
 	
 	public static String messageBody ="TestMessage";
