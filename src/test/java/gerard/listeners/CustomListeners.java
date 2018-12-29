@@ -13,6 +13,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 public class CustomListeners extends TestBase implements ITestListener, ISuiteListener {
+    public String messageBody;
 
     public void onTestStart(ITestResult iTestResult) {
         test = rep.startTest(iTestResult.getName().toUpperCase());
@@ -67,7 +68,6 @@ public class CustomListeners extends TestBase implements ITestListener, ISuiteLi
     @Override
     public void onFinish(ISuite iSuite) {
         MonitoringMail mail = new MonitoringMail();
-        String messageBody = null;
         try {
             messageBody = "http://" + InetAddress.getLocalHost().getHostAddress()
                     + ":8080/job/DataDrivenLiveProject/Extent_20Report/";
