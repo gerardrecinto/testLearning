@@ -26,9 +26,9 @@ public class TestConfig {
 	
 	//MYSQL DATABASE DETAILS
 	public static String mysqldriver="com.mysql.jdbc.Driver";
-	public static String mysqluserName = "root";
-	public static String mysqlpassword = "";
-	public static String mysqlurl = "jdbc:mysql://localhost:3306/acs";
+	public static String mysqluserName = System.getenv().getOrDefault("MYSQL_USERNAME", "root");
+	public static String mysqlpassword = System.getenv().getOrDefault("MYSQL_PASSWORD", "");
+	public static String mysqlurl = System.getenv().getOrDefault("MYSQL_URL", "jdbc:mysql://localhost:3306/acs");
 	
 	
 	
